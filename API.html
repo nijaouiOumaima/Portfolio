@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Hello World avec jQuery</title>
+  <meta charset=iso-8859-1 />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="jquery-2.1.4.min.js"></script>
+  
+ <script>
+   function calculNumber() {
+    if (localStorage.comptloc==null ) {
+     // localStorage.setItem('comptloc',0);// le meme
+      localStorage.comptloc=0;
+      alert("localstorage:" + localStorage.comptloc);
+    }
+
+    else {
+
+      localStorage.comptloc++;
+      alert("localstorage:" + localStorage.comptloc);
+        
+    }
+
+    if(sessionStorage.comptses==null){
+      sessionStorage.comptses=0;
+      alert("sessionstorage:" + sessionStorage.comptses);
+    }
+     else{
+      sessionStorage.comptses++;
+      alert("sessionstorage:" + sessionStorage.comptses);
+     }
+    /* var compt=calculNumber(sessionStorage.comptses);
+     compt++;
+     sessionStorage.comptses=compt;*/
+    
+    
+  
+  };
+
+ </script>
+    
+</head>
+
+<body>
+
+  <h2>Contact </h2>
+  Be called back for more information
+  <div class="container">
+    <form action="acceuil.html" id="frm" method="post"  >
+      <br>
+
+      <label for="fname">First Name(*)</label>
+      <input type="text" placeholder="Name" required oninput="sessionStorage.setItem('username', this.value);"
+        name=" Name">
+      <br>
+      <!--la valeur 'nom' sera souvegarder dans le navigateur-->
+      <label for="lname">Last Name(*)</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+      <br>
+      <label for="country">You want to be contacted by </label>
+      <select id="country" name="country">
+        <br>
+        <option value=""></option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+      <br>
+      <br>
+      <label for="fname">Phone number</label>
+      <br>
+      <input type="tel" id="phone" name="">
+      <br>
+      <label for="fname">when(*)</label>
+      <input type="date" id="phone" name="" required>
+      <br>
+      <label for="fname" id="between">Between(*)</label>
+      <input type="time" id="between" name="" value="07:00" min="07:00" max="19:00" required> and <input type="time"
+        id="phone" name="" value="07:00" required> <br>
+      <br>
+
+      <input type="submit" value="Submit" onclick="calculNumber()">
+
+      <input type="reset" value="cancel">
+      1 <input type="range" Min="0" Max="100" step="20">
+
+    </form>
+  </div>
+
+</body>
+
+</html>

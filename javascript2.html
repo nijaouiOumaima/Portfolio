@@ -1,0 +1,203 @@
+<!--exrecice 3 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ <!-- exercice 4-->
+ <script>
+     
+    function Calcul() {
+        var operation = document.form['operation'].value;
+        var Res = eval(operation);
+        document.form['Res'].value = Res;
+        return Res;
+    }
+
+    function afficher() {
+        alert("Le résultat est :" + Calcul());
+    }
+</script>
+<!--exercice 5-->
+
+    <title>Exercice 5</title>
+    <script>
+        var prenoms = [],
+        prenom;
+        while (prenom = prompt('Entrez un prénom :')) {
+        prenoms.push(prenom); // Ajoute le nouveau prénom ainsi qu'un espace
+        }
+        if (prenoms.length > 0) {
+        alert(prenoms.join(' '));
+        } else {
+        alert('Il n\'y a aucun prénom en mémoire');
+        }
+    </script>
+    <!--exercice 6-->
+    <script>
+        function Verif(monFormulaire) {
+            if (monFormulaire.nom.value == "") {
+                alert("saisir votre nom et prénom!");
+                return false;
+            }
+            if (monFormulaire.email.value == "") {
+                alert("saisir votre adresse e-mail!");
+                return false;
+            }
+            if (monFormulaire.cin.value == "") {
+                alert("saisir votre CIN!");
+                return false;
+            }
+
+            var x = 1;
+            var n = monFormulaire.cin.value.length;
+            for (i = 0; i < n; ++i) {
+                if (monFormulaire.cin.value.charAt(i) < "0" || monFormulaire.cin.value.charAt(i) > "9" || n >= 8) {
+                    x = -1;
+                }
+            }
+
+            if (x == -1) {
+                alert("CIN incorrect!");
+                return false;
+            }
+            i
+            if (monFormulaire.email.value.indexOf('@') == -1) {
+                alert("Adresse e-mail invalide!");
+                return false;
+            }
+            taille = monFormulaire.list.options.length;
+            var n = 0;
+            for (i = 0; i < taille; i++) {
+                if (monFormulaire.list[i].selected) {
+                    n += 1
+                }
+            }
+            if (n == 0) {
+                alert("module de formation vide!");
+                return false;
+            }
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Exercice3</h1>
+    <script>
+        var nombre;
+        month = Number(prompt("Entrez le numero du mois", ""));
+        year = Number(prompt("Entrez l’année", ""));
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 12:
+                nombre = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                nombre = 30;
+                break;
+            case 2:
+                if (year % 4 == 0) nombre = 29;
+                else nombre = 28;
+                break;
+        }
+        alert("Le nombre de jours est : " + nombre);
+    </script>
+    <!--exercice 4-->
+    <form name="form">
+        <input type="text" name="operation">
+        <input type="button" value=" = " onclick="Calcul()">
+        <input type="text" name="Res"><br>
+
+        <input type="button" value=" 1 " onclick="document.form['operation'].value += '1'" />
+        <input type="button" value=" 2 " onclick="document.form['operation'].value += '2'" />
+        <input type="button" value=" 3 " onclick="document.form['operation'].value += '3'" />
+        <input type="button" value=" + " onclick="document.form['operation'].value += '+'" />
+        <br/>
+
+        <input type="button" value=" 4 " onclick="document.form['operation'].value += '4'" />
+        <input type="button" value=" 5 " onclick="document.form['operation'].value += '5'" />
+        <input type="button" value=" 6 " onclick="document.form['operation'].value += '6'" />
+        <input type="button" value=" - " onclick="document.form['operation'].value += '-'" />
+        </br>
+
+        <input type="button" value=" 7 " onclick="document.form['operation'].value += '7'" />
+        <input type="button" value=" 8 " onclick="document.form['operation'].value += '8'" />
+        <input type="button" value=" 9 " onclick="document.form['operation'].value += '9'" />
+        <input type="button" value=" x " onclick="document.form['operation'].value += '*'" />
+        </br>
+
+        <input type="button" value=" c " onclick="document.form['operation'].value = ''" />
+        <input type="button" value=" 0 " onclick="document.form['operation'].value += '0'" />
+        <input type="button" value=" / " onclick="document.form['operation'].value += '/'" />
+        </br>
+        <a href="" onclick="afficher()">
+            <h2>Calculer</h2>
+        </a>
+    </form>
+   <!--exercice 6-->
+   <style>
+    body {
+        background-color: #dd7e9d;
+    }
+</style>
+<center>
+    <h1><u>INSCRIPTION</u></h1>
+</center><br>
+
+<form name="monFormulaire" id="monFormulaire" method="post" onsubmit="return false">
+    <div>
+        <label class="label">Nom et Prenom *:</label>
+        <input class="controle" type="text" name="pseudo" required pattern="[0-9a-zA-Z-\.]{3,12}">
+        <span class="resultat"></span>
+    </div>
+
+    <div>
+        <label class="label">CIN * :</label>
+        <input class="controle" type="number" name="contribution" min="0" max="8" required placeholder="8 chiffre">
+        <span class="resultat"></span>
+    </div>
+    <div>
+        <label class="label"> Adresse E-mail * :</label>
+        <input class="controle" type="email" name="mail" required placeholder="mail@serveur.com">
+        <span class="resultat"></span>
+    </div>
+    <div>
+        Niveau :
+        <br>
+        <input type="radio" checked value="1"> Secondaire <input type="radio" value="2"> Universitaire <input
+            type="radio" value="3"> Autre<br><br>
+        Modules de formation :
+        <SELECT name="list">
+            <OPTION VALUE="Bureautique">Bureautique</OPTION>
+            <OPTION VALUE="SE et Réseaux info.">SE et Réseaux info.</OPTION>
+            <OPTION VALUE="TIC">TIC</OPTION>
+        </SELECT><br><br>
+
+    </div>
+    <div>
+        <input type="submit" value="Envoyer"> <input type="submit" value="Annuler">
+
+    </div>
+    <p style="text-align: right;"> (*) Champs Obligatoire</p>
+
+</form>
+
+
+
+</body>
+
+</html>
